@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "アナログ時計WPF", "アナログ時計WPF\アナログ時計WPF.csproj", "{F6571DFF-844D-4D76-91FE-6D906D0F164F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6571DFF-844D-4D76-91FE-6D906D0F164F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6571DFF-844D-4D76-91FE-6D906D0F164F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6571DFF-844D-4D76-91FE-6D906D0F164F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6571DFF-844D-4D76-91FE-6D906D0F164F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AD0E7A9-3CD5-4E1B-9239-236243BA5F63}
+	EndGlobalSection
+EndGlobal
