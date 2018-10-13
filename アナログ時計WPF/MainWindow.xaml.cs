@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace アナログ時計WPF
 {
@@ -21,19 +22,25 @@ namespace アナログ時計WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        DispatcherTimer dispatcherTimer;
         public MainWindow()
         {
             InitializeComponent();
+
+            dispatcherTimer = new DispatcherTimer(DispatcherPriority.Normal);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
+            dispatcherTimer.Start();
         }
 
-        [DllImport("user32.dll")]
-        public static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            label.Text = DateTime.Now.ToLongTimeString();
+        }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //WM_NCLBUTTONDOWN=0xA1, HTCAPTION=2
-            IntPtr hwnd = new System.Windows.Interop.WindowInteropHelper(this).Handle;
-            PostMessage(hwnd, 0xA1, (IntPtr)2, IntPtr.Zero);
+            this.DragMove();
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
