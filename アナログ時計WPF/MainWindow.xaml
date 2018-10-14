@@ -13,14 +13,19 @@
             <MenuItem Header="閉じる" Click="MenuItem_Click"/>
         </ContextMenu>
     </Window.ContextMenu>
+    <Window.Resources>
+        <local:HalfConverter x:Key="halfConverter" />
+    </Window.Resources>
     <Canvas Name="canvas">
         <Ellipse Fill="White" HorizontalAlignment="Left"
              Canvas.Top="0" Canvas.Left="0"
              Margin="0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top"
              Width="{Binding ElementName=TokeiWindow, Path=Width}"
              Height="{Binding ElementName=TokeiWindow, Path=Height}"/>
-        <StackPanel VerticalAlignment="Center">
-            <TextBlock Name="label" Text="00;00;00" TextAlignment="Center" VerticalAlignment="Center"/>
-        </StackPanel>
+        <Rectangle Width="20" Height="3" Canvas.Top="{Binding ElementName=TokeiWindow, Path=Height, Converter={StaticResource halfConverter}}" Canvas.Left="0" Fill="Black"/>
+        <Rectangle Width="3" Height="20" Canvas.Top="0" Canvas.Left="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource halfConverter}}" Fill="Black"/>
+        <Rectangle Width="20" Height="3" Canvas.Top="{Binding ElementName=TokeiWindow, Path=Height, Converter={StaticResource halfConverter}}" Canvas.Right="0" Fill="Black"/>
+        <Rectangle Width="3" Height="20" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource halfConverter}}" Fill="Black"/>
+        
     </Canvas>
 </Window>

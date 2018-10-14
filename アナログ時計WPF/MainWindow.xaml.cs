@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -35,7 +36,7 @@ namespace アナログ時計WPF
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            label.Text = DateTime.Now.ToLongTimeString();
+
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -46,6 +47,20 @@ namespace アナログ時計WPF
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+    }
+
+    class HalfConverter : IValueConverter
+    {
+        // 今回はこちらだけ実装　データ元の値を半分にする
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return (double)value / 2.0d;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
         }
     }
 }
