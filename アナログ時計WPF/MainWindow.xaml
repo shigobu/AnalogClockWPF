@@ -6,26 +6,18 @@
         xmlns:local="clr-namespace:アナログ時計WPF"
         mc:Ignorable="d"
         Title="時計" Height="400" Width="400" Background="Transparent" Name="TokeiWindow"
-        ResizeMode="CanResizeWithGrip" WindowStyle="None" 
-        AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        ResizeMode="NoResize" WindowStyle="None" 
+        AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" SizeChanged="TokeiWindow_SizeChanged">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="閉じる" Click="MenuItem_Click"/>
         </ContextMenu>
     </Window.ContextMenu>
-    <Window.Resources>
-        <local:HalfConverter x:Key="halfConverter" />
-    </Window.Resources>
     <Canvas Name="canvas">
-        <Ellipse Fill="White" HorizontalAlignment="Left"
+        <Ellipse Name="clockCircle" Fill="#00ffffff" HorizontalAlignment="Left"
              Canvas.Top="0" Canvas.Left="0"
              Margin="0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top"
              Width="{Binding ElementName=TokeiWindow, Path=Width}"
              Height="{Binding ElementName=TokeiWindow, Path=Height}"/>
-        <Rectangle Width="20" Height="3" Canvas.Top="{Binding ElementName=TokeiWindow, Path=Height, Converter={StaticResource halfConverter}}" Canvas.Left="0" Fill="Black"/>
-        <Rectangle Width="3" Height="20" Canvas.Top="0" Canvas.Left="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource halfConverter}}" Fill="Black"/>
-        <Rectangle Width="20" Height="3" Canvas.Top="{Binding ElementName=TokeiWindow, Path=Height, Converter={StaticResource halfConverter}}" Canvas.Right="0" Fill="Black"/>
-        <Rectangle Width="3" Height="20" Canvas.Bottom="0" Canvas.Left="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource halfConverter}}" Fill="Black"/>
-        
     </Canvas>
 </Window>
