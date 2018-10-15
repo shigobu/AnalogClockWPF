@@ -157,18 +157,4 @@ namespace アナログ時計WPF
             DrawClokLine();
         }
     }
-
-    class HalfConverter : IValueConverter
-    {
-        // 今回はこちらだけ実装　データ元の値を半分にする
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
-        {
-            return (double)value / 2.0d;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
 }
