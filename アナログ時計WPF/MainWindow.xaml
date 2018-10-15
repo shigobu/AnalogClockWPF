@@ -14,10 +14,13 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Canvas Name="canvas">
-        <Ellipse Name="clockCircle" Fill="#00ffffff" HorizontalAlignment="Left"
+        <Ellipse Name="clockCircle" Fill="#ffffffff" HorizontalAlignment="Left"
              Canvas.Top="0" Canvas.Left="0"
              Margin="0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top"
              Width="{Binding ElementName=TokeiWindow, Path=Width}"
              Height="{Binding ElementName=TokeiWindow, Path=Height}"/>
+        <Line Name="hourHand"/>
+        <Line Name="minuteHand"/>
+        <Line Name="secondHand"/>
     </Canvas>
 </Window>
