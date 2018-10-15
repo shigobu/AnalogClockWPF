@@ -8,6 +8,9 @@
         Title="時計" Height="400" Width="400" Background="Transparent" Name="TokeiWindow"
         ResizeMode="NoResize" WindowStyle="None" 
         AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" SizeChanged="TokeiWindow_SizeChanged">
+    <Window.Resources>
+        <local:HalfConverter x:Key="halfConverter" />
+    </Window.Resources>
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="閉じる" Click="MenuItem_Click"/>
@@ -22,5 +25,10 @@
         <Line Name="hourHand"/>
         <Line Name="minuteHand"/>
         <Line Name="secondHand"/>
+        <Ellipse Fill="Red" HorizontalAlignment="Left"
+             Canvas.Top="{Binding ElementName=TokeiWindow, Path=Height, Converter={StaticResource halfConverter}}" Canvas.Left="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource halfConverter}}"
+             Margin="0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Center"
+             Width="10"
+             Height="10"/>
     </Canvas>
 </Window>
