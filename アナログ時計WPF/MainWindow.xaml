@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="時計" Height="400" Width="400" Background="Transparent" Name="TokeiWindow"
         ResizeMode="CanResizeWithGrip" WindowStyle="None" 
-        AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" SizeChanged="TokeiWindow_SizeChanged">
+        AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" SizeChanged="TokeiWindow_SizeChanged" MinWidth="50" MinHeight="50" 
+        Icon="icon/clock.ico">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="閉じる" Click="MenuItem_Click"/>

@@ -1,18 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
@@ -23,9 +13,9 @@ namespace アナログ時計WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        DispatcherTimer dispatcherTimer;
-        Line[] clockLines;
-        Line[] clockEdgeLines;
+        private DispatcherTimer dispatcherTimer;
+        private Line[] clockLines;
+        private Line[] clockEdgeLines;
 
         public MainWindow()
         {
@@ -136,7 +126,6 @@ namespace アナログ時計WPF
             }
 
             DrawClokLine();
-
         }
 
         //外円の縁
@@ -157,6 +146,7 @@ namespace アナログ時計WPF
         public bool secHandCheck = true;
         public bool minHandCheck = true;
         public bool dateCheck = false;
+
         /// <summary>
         /// タイマーイベント
         /// </summary>
@@ -271,7 +261,6 @@ namespace アナログ時計WPF
             minuteHand.X1 = centerX; minuteHand.Y1 = centerY; minuteHand.X2 = minHandTipX; minuteHand.Y2 = minHandTipY;
             //秒針
             secondHand.X1 = secHandOppositeX; secondHand.Y1 = secHandOppositeY; secondHand.X2 = secHandTipX; secondHand.Y2 = secHandTipY;
-
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
