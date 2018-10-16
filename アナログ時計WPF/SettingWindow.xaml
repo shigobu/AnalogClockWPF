@@ -25,7 +25,7 @@
             <TextBlock Text="不透明度" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3"/>
         </DockPanel>
         <Slider Name="slider2" Margin="3" Maximum="100" Minimum="10" SmallChange="5" LargeChange="10" TickPlacement="BottomRight" TickFrequency="10" ValueChanged="slider2_ValueChanged"/>
-        <StackPanel Margin="80,0,0,0">
+        <StackPanel Margin="70,0,0,0">
             <CheckBox Content="背景透過" Margin="3"/>
             <CheckBox Content="秒針ぬるぬる" Margin="3"/>
             <CheckBox Content="分針ぬるぬる" Margin="3"/>
