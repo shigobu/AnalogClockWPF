@@ -279,5 +279,12 @@ namespace アナログ時計WPF
             DrawClockCircleEdge();
             DrawHand(DateTime.Now);
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            SettingWindow settingWindow = new SettingWindow();
+            settingWindow.Owner = this;
+            settingWindow.Show();
+        }
     }
 }

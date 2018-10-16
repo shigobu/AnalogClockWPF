@@ -11,6 +11,8 @@
         Icon="icon/clock.ico">
     <Window.ContextMenu>
         <ContextMenu>
+            <MenuItem Header="設定" Click="MenuItem_Click_1"/>
+            <Separator/>
             <MenuItem Header="閉じる" Click="MenuItem_Click"/>
         </ContextMenu>
     </Window.ContextMenu>
