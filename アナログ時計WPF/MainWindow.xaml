@@ -14,14 +14,90 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Canvas Name="canvas">
-        <Ellipse Name="clockCircle" Fill="#ffffffff" HorizontalAlignment="Left"
+        <Ellipse Name="clockCircle" Fill="#00ffffff" HorizontalAlignment="Left"
              Canvas.Top="0" Canvas.Left="0"
              Margin="0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top"
              Width="{Binding ElementName=TokeiWindow, Path=Width}"
              Height="{Binding ElementName=TokeiWindow, Path=Height}"/>
-        <Line Name="hourHand"/>
-        <Line Name="minuteHand"/>
-        <Line Name="secondHand"/>
+        <Ellipse Name="clockCircleEdge"/>
+        <Line Name="hourHandEdge" StrokeThickness="10" Stroke="White"/>
+        <Line Name="minuteHandEdge" StrokeThickness="7" Stroke="White"/>
+        <Line Name="secondHandEdge" StrokeThickness="4" Stroke="White"/>
+        <Line Name="clockLine1"/>
+        <Line Name="clockLine2"/>
+        <Line Name="clockLine3"/>
+        <Line Name="clockLine4"/>
+        <Line Name="clockLine5"/>
+        <Line Name="clockLine6"/>
+        <Line Name="clockLine7"/>
+        <Line Name="clockLine8"/>
+        <Line Name="clockLine9"/>
+        <Line Name="clockLine10"/>
+        <Line Name="clockLine11"/>
+        <Line Name="clockLine12"/>
+        <Line Name="clockLine13"/>
+        <Line Name="clockLine14"/>
+        <Line Name="clockLine15"/>
+        <Line Name="clockLine16"/>
+        <Line Name="clockLine17"/>
+        <Line Name="clockLine18"/>
+        <Line Name="clockLine19"/>
+        <Line Name="clockLine20"/>
+        <Line Name="clockLine21"/>
+        <Line Name="clockLine22"/>
+        <Line Name="clockLine23"/>
+        <Line Name="clockLine24"/>
+        <Line Name="clockLine25"/>
+        <Line Name="clockLine26"/>
+        <Line Name="clockLine27"/>
+        <Line Name="clockLine28"/>
+        <Line Name="clockLine29"/>
+        <Line Name="clockLine30"/>
+        <Line Name="clockLine31"/>
+        <Line Name="clockLine32"/>
+        <Line Name="clockLine33"/>
+        <Line Name="clockLine34"/>
+        <Line Name="clockLine35"/>
+        <Line Name="clockLine36"/>
+        <Line Name="clockLine37"/>
+        <Line Name="clockLine38"/>
+        <Line Name="clockLine39"/>
+        <Line Name="clockLine40"/>
+        <Line Name="clockLine41"/>
+        <Line Name="clockLine42"/>
+        <Line Name="clockLine43"/>
+        <Line Name="clockLine44"/>
+        <Line Name="clockLine45"/>
+        <Line Name="clockLine46"/>
+        <Line Name="clockLine47"/>
+        <Line Name="clockLine48"/>
+        <Line Name="clockLine49"/>
+        <Line Name="clockLine50"/>
+        <Line Name="clockLine51"/>
+        <Line Name="clockLine52"/>
+        <Line Name="clockLine53"/>
+        <Line Name="clockLine54"/>
+        <Line Name="clockLine55"/>
+        <Line Name="clockLine56"/>
+        <Line Name="clockLine57"/>
+        <Line Name="clockLine58"/>
+        <Line Name="clockLine59"/>
+        <Line Name="clockLine60"/>
+        <Line Name="clockEdgeLine1"/>
+        <Line Name="clockEdgeLine2"/>
+        <Line Name="clockEdgeLine3"/>
+        <Line Name="clockEdgeLine4"/>
+        <Line Name="clockEdgeLine5"/>
+        <Line Name="clockEdgeLine6"/>
+        <Line Name="clockEdgeLine7"/>
+        <Line Name="clockEdgeLine8"/>
+        <Line Name="clockEdgeLine9"/>
+        <Line Name="clockEdgeLine10"/>
+        <Line Name="clockEdgeLine11"/>
+        <Line Name="clockEdgeLine12"/>
+        <Line Name="hourHand" StrokeThickness="8" Stroke="Black"/>
+        <Line Name="minuteHand" StrokeThickness="5" Stroke="Black"/>
+        <Line Name="secondHand" StrokeThickness="2" Stroke="Red"/>
         <Grid Width="{Binding ElementName=TokeiWindow, Path=Width}" Height="{Binding ElementName=TokeiWindow, Path=Height}">
             <Ellipse Fill="White" HorizontalAlignment="Center"
                  Margin="0" Stroke="Red" StrokeThickness="3" VerticalAlignment="Center"
