@@ -284,6 +284,8 @@ namespace アナログ時計WPF
         {
             SettingWindow settingWindow = new SettingWindow();
             settingWindow.Owner = this;
+            settingWindow.slider1.Value = this.Width;
+            settingWindow.slider2.Value = this.Opacity * 100;
             settingWindow.Show();
         }
     }

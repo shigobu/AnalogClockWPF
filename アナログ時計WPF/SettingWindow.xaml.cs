@@ -24,6 +24,53 @@ namespace アナログ時計WPF
         {
             InitializeComponent();
         }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                try
+                {
+                    slider1.Value = double.Parse(textBox1.Text);
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                try
+                {
+                    slider2.Value = double.Parse(textBox2.Text);
+                }
+                catch (Exception)
+                {
+                }
+            }
+        }
+
+        private void slider1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (this.Owner == null)
+            {
+                return;
+            }
+            this.Owner.Width = slider1.Value;
+            this.Owner.Height = slider1.Value;
+        }
+
+        private void slider2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (this.Owner == null)
+            {
+                return;
+            }
+            this.Owner.Opacity = slider2.Value / 100.0;
+        }
     }
 
     class DoubleToIntConverter : IValueConverter
