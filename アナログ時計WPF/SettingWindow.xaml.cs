@@ -74,7 +74,16 @@ namespace アナログ時計WPF
 
         private void toukaCheckBox_Click(object sender, RoutedEventArgs e)
         {
-
+            if ((bool)((CheckBox)sender).IsChecked)
+            {
+                SolidColorBrush colorBrush = ((MainWindow)this.Owner).clockCircle.Fill as SolidColorBrush;
+                colorBrush.Color = Color.FromArgb(0, 0xff, 0xff, 0xff);
+            }
+            else
+            {
+                SolidColorBrush colorBrush = ((MainWindow)this.Owner).clockCircle.Fill as SolidColorBrush;
+                colorBrush.Color = Color.FromArgb(0xff, 0xff, 0xff, 0xff);
+            }
         }
 
         private void secCheckBox_Click(object sender, RoutedEventArgs e)
@@ -90,6 +99,12 @@ namespace アナログ時計WPF
         private void dayCheckBox_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Left = this.Owner.Left - this.ActualWidth;
+            this.Top = this.Owner.Top;
         }
     }
 

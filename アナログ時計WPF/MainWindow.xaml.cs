@@ -199,8 +199,8 @@ namespace アナログ時計WPF
         /// <param name="nowTime">現在時刻</param>
         private void DrawHand(DateTime nowTime)
         {
-            double centerX = this.Width / 2;        //中心X軸
-            double centerY = this.Height / 2;       //中心Y軸
+            double centerX = this.ActualWidth / 2;        //中心X軸
+            double centerY = this.ActualHeight / 2;       //中心Y軸
 
             //時間の12時間表示
             double nowHour = nowTime.Hour;
@@ -289,6 +289,17 @@ namespace アナログ時計WPF
             settingWindow.Owner = this;
             settingWindow.slider1.Value = this.Width;
             settingWindow.slider2.Value = this.Opacity * 100;
+            if (((SolidColorBrush)this.clockCircle.Fill).Color.A == 0x00)
+            {
+                settingWindow.toukaCheckBox.IsChecked = true;
+            }
+            else
+            {
+                settingWindow.toukaCheckBox.IsChecked = false;
+            }
+            settingWindow.secCheckBox.IsChecked = secHandCheck;
+            settingWindow.minCheckBox.IsChecked = minHandCheck;
+            settingWindow.dayCheckBox.IsChecked = dateCheck;
             settingWindow.Show();
         }
     }

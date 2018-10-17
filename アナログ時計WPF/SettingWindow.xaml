@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:アナログ時計WPF"
         mc:Ignorable="d"
-        Title="設定" Width="200" WindowStyle="ToolWindow" ShowInTaskbar="False" WindowStartupLocation="CenterOwner"
-        SizeToContent="Height" ResizeMode="NoResize">
+        Title="設定" Width="200" WindowStyle="ToolWindow" ShowInTaskbar="False"
+        SizeToContent="Height" ResizeMode="NoResize" Loaded="Window_Loaded">
     <Window.Resources>
         <local:DoubleToIntConverter x:Key="DoubleToInt" />
     </Window.Resources>
