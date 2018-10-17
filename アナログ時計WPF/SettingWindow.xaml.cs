@@ -71,6 +71,26 @@ namespace アナログ時計WPF
             }
             this.Owner.Opacity = slider2.Value / 100.0;
         }
+
+        private void toukaCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void secCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)this.Owner).secHandCheck = (bool)((CheckBox)sender).IsChecked;
+        }
+
+        private void minCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)this.Owner).minHandCheck = (bool)((CheckBox)sender).IsChecked;
+        }
+
+        private void dayCheckBox_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     class DoubleToIntConverter : IValueConverter

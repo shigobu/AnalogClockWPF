@@ -26,10 +26,10 @@
         </DockPanel>
         <Slider Name="slider2" Margin="3" Maximum="100" Minimum="10" SmallChange="5" LargeChange="10" TickPlacement="BottomRight" TickFrequency="10" ValueChanged="slider2_ValueChanged"/>
         <StackPanel Margin="70,0,0,0">
-            <CheckBox Content="背景透過" Margin="3"/>
-            <CheckBox Content="秒針ぬるぬる" Margin="3"/>
-            <CheckBox Content="分針ぬるぬる" Margin="3"/>
-            <CheckBox Content="日付表示" Margin="3"/>
+            <CheckBox Name="toukaCheckBox" Content="背景透過" Margin="3" Click="toukaCheckBox_Click"/>
+            <CheckBox Name="secCheckBox" Content="秒針ぬるぬる" Margin="3" Click="secCheckBox_Click"/>
+            <CheckBox Name="minCheckBox" Content="分針ぬるぬる" Margin="3" Click="minCheckBox_Click"/>
+            <CheckBox Name="dayCheckBox" Content="日付表示" Margin="3" Click="dayCheckBox_Click"/>
         </StackPanel>
     </StackPanel>
 </Window>

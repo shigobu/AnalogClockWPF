@@ -128,7 +128,9 @@ namespace アナログ時計WPF
             DrawClokLine();
         }
 
-        //外円の縁
+        /// <summary>
+        /// 外側の縁変形
+        /// </summary>
         private void DrawClockCircleEdge()
         {
             clockCircleEdge.Width = this.Width - 2;
@@ -142,10 +144,9 @@ namespace アナログ時計WPF
             clockCircleEdge.StrokeThickness = 1;
         }
 
-        public bool touka = false;
-        public bool secHandCheck = true;
-        public bool minHandCheck = true;
-        public bool dateCheck = false;
+        internal bool secHandCheck = false;
+        internal bool minHandCheck = false;
+        internal bool dateCheck = false;
 
         /// <summary>
         /// タイマーイベント
@@ -154,8 +155,6 @@ namespace アナログ時計WPF
         /// <param name="e"></param>
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            DrawClockCircleEdge();
-            DrawClokLine();
             DrawHand(DateTime.Now);
         }
 
@@ -194,6 +193,10 @@ namespace アナログ時計WPF
             }
         }
 
+        /// <summary>
+        /// 時計の針を動かします。
+        /// </summary>
+        /// <param name="nowTime">現在時刻</param>
         private void DrawHand(DateTime nowTime)
         {
             double centerX = this.Width / 2;        //中心X軸
