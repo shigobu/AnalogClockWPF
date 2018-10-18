@@ -9,6 +9,9 @@
         ResizeMode="NoResize" WindowStyle="None" 
         AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" SizeChanged="TokeiWindow_SizeChanged" MinWidth="50" MinHeight="50" 
         Icon="icon/clock.ico">
+    <Window.Resources>
+        <local:OneParTenConverter x:Key="OneParTen" />
+    </Window.Resources>
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="設定" Click="MenuItem_Click_1"/>
@@ -116,7 +119,7 @@
                      Stroke="Red" StrokeThickness="3" VerticalAlignment="Center"
                      Width="14" Height="14" 
                      Grid.Column="1" Grid.Row="1"/>
-            <TextBlock Name="textEdge" Text="元号&#xa;10月20日"
+            <TextBlock Name="textEdge" Text="元号&#xa;10月20日" Foreground="White" FontSize="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource OneParTen}}"
                        TextAlignment="Center" VerticalAlignment="Center"
                        Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                
