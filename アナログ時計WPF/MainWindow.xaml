@@ -8,7 +8,7 @@
         Title="時計" Height="400" Width="400" Background="Transparent" Name="TokeiWindow"
         ResizeMode="NoResize" WindowStyle="None" 
         AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" SizeChanged="TokeiWindow_SizeChanged" MinWidth="50" MinHeight="50" 
-        Icon="icon/clock.ico" Loaded="TokeiWindow_Loaded">
+        Icon="icon/clock.ico" Loaded="TokeiWindow_Loaded" Topmost="True">
     <Window.Resources>
         <local:OneParTenConverter x:Key="OneParTen" />
     </Window.Resources>
