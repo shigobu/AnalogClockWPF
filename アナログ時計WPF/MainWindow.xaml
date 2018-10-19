@@ -8,7 +8,7 @@
         Title="時計" Height="400" Width="400" Background="Transparent" Name="TokeiWindow"
         ResizeMode="NoResize" WindowStyle="None" 
         AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" SizeChanged="TokeiWindow_SizeChanged" MinWidth="50" MinHeight="50" 
-        Icon="icon/clock.ico">
+        Icon="icon/clock.ico" Loaded="TokeiWindow_Loaded">
     <Window.Resources>
         <local:OneParTenConverter x:Key="OneParTen" />
     </Window.Resources>
@@ -20,7 +20,7 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Canvas Name="canvas">
-        <Ellipse Name="clockCircle" Fill="#00ffffff" HorizontalAlignment="Left"
+        <Ellipse Name="clockCircle" Fill="#ffffffff" HorizontalAlignment="Left"
              Canvas.Top="0" Canvas.Left="0"
              Margin="0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top"
              Width="{Binding ElementName=TokeiWindow, Path=Width}"
@@ -120,19 +120,19 @@
                      Width="14" Height="14" 
                      Grid.Column="1" Grid.Row="1"/>
             <TextBlock Name="textEdge1" Text="元号&#xa;10月20日" Foreground="White" FontSize="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource OneParTen}}"
-                       TextAlignment="Center" VerticalAlignment="Center"
+                       Visibility="Hidden" TextAlignment="Center" VerticalAlignment="Center"
                        Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <TextBlock Name="textEdge2" Text="元号&#xa;10月20日" Foreground="White" FontSize="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource OneParTen}}"
-                       TextAlignment="Center" VerticalAlignment="Center"
+                       Visibility="Hidden" TextAlignment="Center" VerticalAlignment="Center"
                        Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <TextBlock Name="textEdge3" Text="元号&#xa;10月20日" Foreground="White" FontSize="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource OneParTen}}"
-                       TextAlignment="Center" VerticalAlignment="Center"
+                       Visibility="Hidden" TextAlignment="Center" VerticalAlignment="Center"
                        Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <TextBlock Name="textEdge4" Text="元号&#xa;10月20日" Foreground="White" FontSize="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource OneParTen}}"
-                       TextAlignment="Center" VerticalAlignment="Center"
+                       Visibility="Hidden" TextAlignment="Center" VerticalAlignment="Center"
                        Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <TextBlock Name="text" Text="元号&#xa;10月20日" Foreground="Black" FontSize="{Binding ElementName=TokeiWindow, Path=Width, Converter={StaticResource OneParTen}}"
-                       TextAlignment="Center" VerticalAlignment="Center"
+                       Visibility="Hidden" TextAlignment="Center" VerticalAlignment="Center"
                        Grid.Column="1" Grid.Row="1"/>
         </Grid>
     </Canvas>

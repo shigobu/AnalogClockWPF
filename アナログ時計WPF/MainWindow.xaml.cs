@@ -18,6 +18,7 @@ namespace アナログ時計WPF
         private DispatcherTimer dispatcherTimer;
         private Line[] clockLines;
         private Line[] clockEdgeLines;
+        SettingWindow settingWindow;
 
         public MainWindow()
         {
@@ -148,7 +149,6 @@ namespace アナログ時計WPF
 
         internal bool secHandCheck = false;
         internal bool minHandCheck = false;
-        internal bool dateCheck = false;
 
         /// <summary>
         /// タイマーイベント
@@ -158,6 +158,7 @@ namespace アナログ時計WPF
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
             DrawHand(DateTime.Now);
+            changeText(DateTime.Now);
         }
 
         /// <summary>
@@ -268,6 +269,43 @@ namespace アナログ時計WPF
             secondHand.X1 = secHandOppositeX; secondHand.Y1 = secHandOppositeY; secondHand.X2 = secHandTipX; secondHand.Y2 = secHandTipY;
         }
 
+        /// <summary>
+        /// 日付を変更する
+        /// </summary>
+        /// <param name="nowTime">現在時間</param>
+        internal void changeText(DateTime nowTime)
+        {
+            //文字列作成
+            CultureInfo ci = new CultureInfo("ja-JP", false);
+            ci.DateTimeFormat.Calendar = new JapaneseCalendar();
+
+            string year = nowTime.ToString("gy年", ci);
+            string date = nowTime.ToString("M月d日(ddd)", ci);
+
+            string str = year + "\n" + date;
+
+            textEdge1.Text = str;
+            textEdge2.Text = str;
+            textEdge3.Text = str;
+            textEdge4.Text = str;
+
+            text.Text = str;
+        }
+
+        /// <summary>
+        /// 日付の表示状態を変更する
+        /// </summary>
+        /// <param name="visible">表示状態</param>
+        internal void changeTextVisible(Visibility visible)
+        {
+            textEdge1.Visibility = visible;
+            textEdge2.Visibility = visible;
+            textEdge3.Visibility = visible;
+            textEdge4.Visibility = visible;
+
+            text.Visibility = visible;
+        }
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -287,8 +325,6 @@ namespace アナログ時計WPF
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            SettingWindow settingWindow = new SettingWindow();
-            settingWindow.Owner = this;
             settingWindow.slider1.Value = this.Width;
             settingWindow.slider2.Value = this.Opacity * 100;
             if (((SolidColorBrush)this.clockCircle.Fill).Color.A == 0x00)
@@ -301,8 +337,97 @@ namespace アナログ時計WPF
             }
             settingWindow.secCheckBox.IsChecked = secHandCheck;
             settingWindow.minCheckBox.IsChecked = minHandCheck;
-            settingWindow.dayCheckBox.IsChecked = dateCheck;
+            settingWindow.dayCheckBox.IsChecked = text.IsVisible;
             settingWindow.Show();
+            settingWindow.Activate();
+        }
+
+        private void TokeiWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            settingWindow = new SettingWindow();
+            settingWindow.Owner = this;
+
+            //コマンドライン引数を取得
+            string[] cmds = Environment.GetCommandLineArgs();
+            //透過
+            if (Array.IndexOf(cmds, "/touka") > 0)
+            {
+                SolidColorBrush colorBrush = this.clockCircle.Fill as SolidColorBrush;
+                colorBrush.Color = Color.FromArgb(0, 0xff, 0xff, 0xff);
+            }
+            //秒針
+            if (Array.IndexOf(cmds, "/secHand") > 0)
+            {
+                secHandCheck = true;
+            }
+            //分針
+            if (Array.IndexOf(cmds, "/minHand") > 0)
+            {
+                minHandCheck = true;
+            }
+            //日付
+            if (Array.IndexOf(cmds, "/date") > 0)
+            {
+                changeTextVisible(Visibility.Visible);
+            }
+            //透明度
+            int index = Array.IndexOf(cmds, "/Opacity");
+            if (index > 0 && index + 1 < cmds.Length)
+            {
+                try
+                {
+                    if (int.Parse(cmds[index + 1]) > 9)
+                    {
+                        this.Opacity = int.Parse(cmds[index + 1]) / 100d;
+                    }
+                    else
+                    {
+                        this.Opacity = 0.1;
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+            //大きさ
+            index = Array.IndexOf(cmds, "/size");
+            if (index > 0 && index + 1 < cmds.Length)
+            {
+                try
+                {
+                    int size = int.Parse(cmds[index + 1]);
+                    if (49 < size && size < 1001)
+                    {
+                        this.Size = new Size(size, size);
+                    }
+                    else
+                    {
+                        this.Size = new Size(300, 300);
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        /// <summary>
+        /// ウィンドウのサイズを取得または設定します。
+        /// </summary>
+        private Size Size
+        {
+            get
+            {
+                Size size = new Size(Width, Height);
+                return size;
+            }
+            set
+            {
+                Width = value.Width;
+                Height = value.Height;
+            }
         }
     }
 
@@ -310,7 +435,7 @@ namespace アナログ時計WPF
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (double)value / 10;
+            return (double)value / 9;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

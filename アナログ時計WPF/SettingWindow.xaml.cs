@@ -98,13 +98,26 @@ namespace アナログ時計WPF
 
         private void dayCheckBox_Click(object sender, RoutedEventArgs e)
         {
-
+            if ((bool)((CheckBox)sender).IsChecked)
+            {
+                ((MainWindow)Owner).changeTextVisible(Visibility.Visible);
+            }
+            else
+            {
+                ((MainWindow)Owner).changeTextVisible(Visibility.Collapsed);
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.Left = this.Owner.Left - this.ActualWidth;
             this.Top = this.Owner.Top;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.Hide();
+            e.Cancel = true;
         }
     }
 

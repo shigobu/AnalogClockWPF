@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:アナログ時計WPF"
         mc:Ignorable="d"
         Title="設定" Width="200" WindowStyle="ToolWindow" ShowInTaskbar="False"
-        SizeToContent="Height" ResizeMode="NoResize" Loaded="Window_Loaded">
+        SizeToContent="Height" ResizeMode="NoResize" Loaded="Window_Loaded" Closing="Window_Closing">
     <Window.Resources>
         <local:DoubleToIntConverter x:Key="DoubleToInt" />
     </Window.Resources>
