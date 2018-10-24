@@ -339,10 +339,9 @@ namespace アナログ時計WPF
             settingWindow.minCheckBox.IsChecked = minHandCheck;
             settingWindow.dayCheckBox.IsChecked = text.IsVisible;
 
+            settingWindow.Show();
             settingWindow.Left = this.Left - settingWindow.ActualWidth;
             settingWindow.Top = this.Top;
-
-            settingWindow.Show();
             settingWindow.Activate();
         }
 
