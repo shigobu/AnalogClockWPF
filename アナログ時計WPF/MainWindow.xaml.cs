@@ -355,7 +355,7 @@ namespace アナログ時計WPF
             //透過
             if (Array.IndexOf(cmds, "/touka") > 0)
             {
-                SolidColorBrush colorBrush = this.clockCircle.Fill as SolidColorBrush;
+                SolidColorBrush colorBrush = this.clockCircleBass.Fill as SolidColorBrush;
                 colorBrush.Color = Color.FromArgb(0, 0xff, 0xff, 0xff);
             }
             //秒針
