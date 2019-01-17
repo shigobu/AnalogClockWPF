@@ -20,12 +20,12 @@
         </ContextMenu>
     </Window.ContextMenu>
     <Canvas Name="canvas">
-        <Ellipse Name="clockCircle" Fill="#ffffffff" HorizontalAlignment="Left"
+        <Ellipse Name="clockCircleEdge"/>
+        <Ellipse Name="clockCircleBass" Fill="#ffffffff" HorizontalAlignment="Left"
              Canvas.Top="0" Canvas.Left="0"
-             Margin="0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top"
+             Margin="0" Stroke="Transparent" StrokeThickness="1" VerticalAlignment="Top"
              Width="{Binding ElementName=TokeiWindow, Path=Width}"
              Height="{Binding ElementName=TokeiWindow, Path=Height}"/>
-        <Ellipse Name="clockCircleEdge"/>
         <Line Name="hourHandEdge" StrokeThickness="10" Stroke="White"/>
         <Line Name="minuteHandEdge" StrokeThickness="7" Stroke="White"/>
         <Line Name="secondHandEdge" StrokeThickness="4" Stroke="White"/>
@@ -101,6 +101,11 @@
         <Line Name="clockEdgeLine10"/>
         <Line Name="clockEdgeLine11"/>
         <Line Name="clockEdgeLine12"/>
+        <Ellipse Name="clockCircle" Fill="Transparent" HorizontalAlignment="Left"
+             Canvas.Top="0" Canvas.Left="0"
+             Margin="0" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top"
+             Width="{Binding ElementName=TokeiWindow, Path=Width}"
+             Height="{Binding ElementName=TokeiWindow, Path=Height}"/>
         <Line Name="hourHand" StrokeThickness="8" Stroke="Black"/>
         <Line Name="minuteHand" StrokeThickness="5" Stroke="Black"/>
         <Line Name="secondHand" StrokeThickness="2" Stroke="Red"/>

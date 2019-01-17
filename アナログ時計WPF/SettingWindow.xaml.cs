@@ -76,12 +76,12 @@ namespace アナログ時計WPF
         {
             if ((bool)((CheckBox)sender).IsChecked)
             {
-                SolidColorBrush colorBrush = ((MainWindow)this.Owner).clockCircle.Fill as SolidColorBrush;
+                SolidColorBrush colorBrush = ((MainWindow)this.Owner).clockCircleBass.Fill as SolidColorBrush;
                 colorBrush.Color = Color.FromArgb(0, 0xff, 0xff, 0xff);
             }
             else
             {
-                SolidColorBrush colorBrush = ((MainWindow)this.Owner).clockCircle.Fill as SolidColorBrush;
+                SolidColorBrush colorBrush = ((MainWindow)this.Owner).clockCircleBass.Fill as SolidColorBrush;
                 colorBrush.Color = Color.FromArgb(0xff, 0xff, 0xff, 0xff);
             }
         }

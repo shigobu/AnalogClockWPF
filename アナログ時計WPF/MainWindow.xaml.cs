@@ -327,7 +327,7 @@ namespace アナログ時計WPF
         {
             settingWindow.slider1.Value = this.Width;
             settingWindow.slider2.Value = this.Opacity * 100;
-            if (((SolidColorBrush)this.clockCircle.Fill).Color.A == 0x00)
+            if (((SolidColorBrush)this.clockCircleBass.Fill).Color.A == 0x00)
             {
                 settingWindow.toukaCheckBox.IsChecked = true;
             }
