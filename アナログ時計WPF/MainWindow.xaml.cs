@@ -279,7 +279,8 @@ namespace アナログ時計WPF
             CultureInfo ci = new CultureInfo("ja-JP", false);
             ci.DateTimeFormat.Calendar = new JapaneseCalendar();
 
-            string year = nowTime.ToString("gy年", ci);
+            //年をシングルコーテーションで囲うと元年になる
+            string year = nowTime.ToString("ggy'年'", ci);
             string date = nowTime.ToString("M月d日(ddd)", ci);
 
             string str = year + "\n" + date;
