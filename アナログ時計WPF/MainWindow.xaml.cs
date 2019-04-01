@@ -31,110 +31,156 @@ namespace アナログ時計WPF
 
             DrawClockCircleEdge();
 
-            double centerX = this.Width / 2;        //中心X軸
-            double centerY = this.Height / 2;       //中心Y軸
+			SetClockLine();
 
-            //円周の線の記述
-            clockLines = new Line[60]
-            {
-                clockLine1,
-                clockLine2,
-                clockLine3,
-                clockLine4,
-                clockLine5,
-                clockLine6,
-                clockLine7,
-                clockLine8,
-                clockLine9,
-                clockLine10,
-                clockLine11,
-                clockLine12,
-                clockLine13,
-                clockLine14,
-                clockLine15,
-                clockLine16,
-                clockLine17,
-                clockLine18,
-                clockLine19,
-                clockLine20,
-                clockLine21,
-                clockLine22,
-                clockLine23,
-                clockLine24,
-                clockLine25,
-                clockLine26,
-                clockLine27,
-                clockLine28,
-                clockLine29,
-                clockLine30,
-                clockLine31,
-                clockLine32,
-                clockLine33,
-                clockLine34,
-                clockLine35,
-                clockLine36,
-                clockLine37,
-                clockLine38,
-                clockLine39,
-                clockLine40,
-                clockLine41,
-                clockLine42,
-                clockLine43,
-                clockLine44,
-                clockLine45,
-                clockLine46,
-                clockLine47,
-                clockLine48,
-                clockLine49,
-                clockLine50,
-                clockLine51,
-                clockLine52,
-                clockLine53,
-                clockLine54,
-                clockLine55,
-                clockLine56,
-                clockLine57,
-                clockLine58,
-                clockLine59,
-                clockLine60,
-            };
-            clockEdgeLines = new Line[12]
-            {
-                clockEdgeLine1,
-                clockEdgeLine2,
-                clockEdgeLine3,
-                clockEdgeLine4,
-                clockEdgeLine5,
-                clockEdgeLine6,
-                clockEdgeLine7,
-                clockEdgeLine8,
-                clockEdgeLine9,
-                clockEdgeLine10,
-                clockEdgeLine11,
-                clockEdgeLine12,
-            };
+			DrawClokLine();
 
-            //文字盤の線を描く
-            for (int i = 0; i < 60; i++)
-            {
-                if (i % 5 == 0)
-                {
-                    clockLines[i].StrokeThickness = 8; clockLines[i].Stroke = new SolidColorBrush(Colors.White);
-                    clockEdgeLines[i / 5].StrokeThickness = 6; clockEdgeLines[i / 5].Stroke = new SolidColorBrush(Colors.Black);
-                }
-                else
-                {
-                    clockLines[i].StrokeThickness = 1; clockLines[i].Stroke = new SolidColorBrush(Colors.Black);
-                }
-            }
+			SetFont();
 
-            DrawClokLine();
-        }
+		}
 
-        /// <summary>
-        /// 外側の縁変形
-        /// </summary>
-        private void DrawClockCircleEdge()
+		/// <summary>
+		/// 円周の線を定義します。
+		/// </summary>
+		private void SetClockLine()
+		{
+			//円周の線の記述
+			clockLines = new Line[60]
+			{
+				clockLine1,
+				clockLine2,
+				clockLine3,
+				clockLine4,
+				clockLine5,
+				clockLine6,
+				clockLine7,
+				clockLine8,
+				clockLine9,
+				clockLine10,
+				clockLine11,
+				clockLine12,
+				clockLine13,
+				clockLine14,
+				clockLine15,
+				clockLine16,
+				clockLine17,
+				clockLine18,
+				clockLine19,
+				clockLine20,
+				clockLine21,
+				clockLine22,
+				clockLine23,
+				clockLine24,
+				clockLine25,
+				clockLine26,
+				clockLine27,
+				clockLine28,
+				clockLine29,
+				clockLine30,
+				clockLine31,
+				clockLine32,
+				clockLine33,
+				clockLine34,
+				clockLine35,
+				clockLine36,
+				clockLine37,
+				clockLine38,
+				clockLine39,
+				clockLine40,
+				clockLine41,
+				clockLine42,
+				clockLine43,
+				clockLine44,
+				clockLine45,
+				clockLine46,
+				clockLine47,
+				clockLine48,
+				clockLine49,
+				clockLine50,
+				clockLine51,
+				clockLine52,
+				clockLine53,
+				clockLine54,
+				clockLine55,
+				clockLine56,
+				clockLine57,
+				clockLine58,
+				clockLine59,
+				clockLine60,
+			};
+			clockEdgeLines = new Line[12]
+			{
+				clockEdgeLine1,
+				clockEdgeLine2,
+				clockEdgeLine3,
+				clockEdgeLine4,
+				clockEdgeLine5,
+				clockEdgeLine6,
+				clockEdgeLine7,
+				clockEdgeLine8,
+				clockEdgeLine9,
+				clockEdgeLine10,
+				clockEdgeLine11,
+				clockEdgeLine12,
+			};
+
+			//文字盤の線を描く
+			for (int i = 0; i < 60; i++)
+			{
+				if (i % 5 == 0)
+				{
+					clockLines[i].StrokeThickness = 8; clockLines[i].Stroke = new SolidColorBrush(Colors.White);
+					clockEdgeLines[i / 5].StrokeThickness = 6; clockEdgeLines[i / 5].Stroke = new SolidColorBrush(Colors.Black);
+				}
+				else
+				{
+					clockLines[i].StrokeThickness = 1; clockLines[i].Stroke = new SolidColorBrush(Colors.Black);
+				}
+			}
+		}
+
+		/// <summary>
+		/// 「UD デジタル 教科書体 NK-R」があれば設定
+		/// 無い場合、「メイリオ」に設定
+		/// </summary>
+		private void SetFont()
+		{
+			//設定するフォント
+			FontFamily fontFamily = null;
+
+			//インストールされているフォントを取得
+			var fontFamilies = Fonts.SystemFontFamilies;
+
+			//フォントを探す
+			foreach (FontFamily item in fontFamilies)
+			{
+				if (item.ToString() == "Meiryo")
+				{
+					fontFamily = item;
+				}
+				else if(item.ToString() == "UD Digi Kyokasho NK-R")
+				{
+					fontFamily = item;
+					break;
+				}
+			}
+
+			//フォントを設定
+			if (fontFamily != null)
+			{
+				textEdge1.FontFamily = fontFamily;
+				textEdge2.FontFamily = fontFamily;
+				textEdge3.FontFamily = fontFamily;
+				textEdge4.FontFamily = fontFamily;
+
+				text.FontFamily = fontFamily;
+			}
+		}
+
+		/// <summary>
+		/// 外側の縁変形
+		/// </summary>
+		private void DrawClockCircleEdge()
         {
             clockCircleEdge.Width = this.Width - 2;
             clockCircleEdge.Height = this.Height - 2;
