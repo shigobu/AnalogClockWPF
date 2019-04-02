@@ -490,7 +490,7 @@ namespace アナログ時計WPF
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (double)value / 9;
+            return (double)value / 7;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
