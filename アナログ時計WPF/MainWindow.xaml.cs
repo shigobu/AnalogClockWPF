@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Windows.Markup;
 
 namespace アナログ時計WPF
 {
@@ -163,6 +164,14 @@ namespace アナログ時計WPF
 					fontFamily = item;
 					break;
 				}
+                //教科書体を含むフォントを探す
+                else if (item.FamilyNames.ContainsKey(XmlLanguage.GetLanguage(CultureInfo.CurrentUICulture.Name)))
+                {
+                    if (item.FamilyNames[XmlLanguage.GetLanguage(CultureInfo.CurrentUICulture.Name)].Contains("教科書体"))
+                    {
+                        fontFamily = item;
+                    }
+                }
 			}
 
 			//フォントを設定
