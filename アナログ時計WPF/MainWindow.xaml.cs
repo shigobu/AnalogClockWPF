@@ -155,11 +155,7 @@ namespace アナログ時計WPF
 			//フォントを探す
 			foreach (FontFamily item in fontFamilies)
 			{
-				if (item.ToString() == "Meiryo")
-				{
-					fontFamily = item;
-				}
-				else if(item.ToString() == "UD Digi Kyokasho NK-R")
+				if(item.ToString() == "UD Digi Kyokasho NK-R")
 				{
 					fontFamily = item;
 					break;
