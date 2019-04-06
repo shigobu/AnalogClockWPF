@@ -17,7 +17,7 @@
                      TextAlignment="Right" KeyDown="textBox1_KeyDown" />
             <TextBlock Text="真円" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="3"/>
         </DockPanel>
-        <Slider Name="slider1" Margin="3" Maximum="1000" Minimum="50" SmallChange="5" LargeChange="50" TickPlacement="BottomRight" TickFrequency="50" ValueChanged="slider1_ValueChanged"/>
+        <Slider Name="slider1" Margin="3" Maximum="2000" Minimum="50" SmallChange="5" LargeChange="50" TickPlacement="BottomRight" TickFrequency="100" ValueChanged="slider1_ValueChanged"/>
         <DockPanel>
             <TextBox Name="textBox2" DockPanel.Dock="Right" Width="70" Margin="3" 
                      Text="{Binding ElementName=slider2, Path=Value, Converter={StaticResource DoubleToInt}}" 
