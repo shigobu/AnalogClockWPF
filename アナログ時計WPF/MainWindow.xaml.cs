@@ -453,7 +453,7 @@ namespace アナログ時計WPF
                 try
                 {
                     int size = int.Parse(cmds[index + 1]);
-                    if (49 < size && size < 1001)
+                    if (49 < size && size < 2001)
                     {
                         this.Size = new Size(size, size);
                     }
