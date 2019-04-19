@@ -331,7 +331,7 @@ namespace アナログ時計WPF
             ci.DateTimeFormat.Calendar = new JapaneseCalendar();
 
             //年をシングルコーテーションで囲うと元年になる
-            //シングルコーテーションで囲わなくても元年になるように変更された。2019/01/15
+            //シングルコーテーションで囲わなくても元年になるように変更された。2019/04/15
             string year = nowTime.ToString("ggy'年'", ci);
             string date = nowTime.ToString("M月d日(ddd)", ci);
 
