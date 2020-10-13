@@ -30,6 +30,7 @@
             <CheckBox Name="secCheckBox" Content="秒針ぬるぬる" Margin="3" Click="secCheckBox_Click"/>
             <CheckBox Name="minCheckBox" Content="分針ぬるぬる" Margin="3" Click="minCheckBox_Click"/>
             <CheckBox Name="dayCheckBox" Content="日付表示" Margin="3" Click="dayCheckBox_Click"/>
+            <CheckBox Name="chromaKeyBox" Content="クロマキー" Margin="3" Click="chromaKeyBox_Click"/>
         </StackPanel>
     </StackPanel>
 </Window>

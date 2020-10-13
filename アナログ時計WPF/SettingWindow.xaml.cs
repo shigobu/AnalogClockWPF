@@ -117,6 +117,18 @@ namespace アナログ時計WPF
             this.Hide();
             e.Cancel = true;
         }
+
+        private void chromaKeyBox_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)((CheckBox)sender).IsChecked)
+            {
+                ((MainWindow)this.Owner).Background = Brushes.Green;
+            }
+            else
+            {
+                ((MainWindow)this.Owner).Background = Brushes.Transparent;
+            }
+        }
     }
 
     class DoubleToIntConverter : IValueConverter
